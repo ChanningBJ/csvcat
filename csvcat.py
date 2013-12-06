@@ -57,21 +57,10 @@ def parseColumnRowNumber(optstr):
         
     
     
-# if __name__ == '__main__':
-#     opt = OPT(sys.argv[1:],"c:r:s")
-#     print opt.getOption("-c")
-#     print opt.getOption("-r")
-#     print opt.getOption("-s")
-# [2-4],3,4,5,6,[8-9]
 if __name__ == '__main__':
     opt = OPT(sys.argv[1:],"c:r:d:q:",[("-d",","),("-q","\"")])
     user_delimiter=opt.getOption("-d")
-    # if user_delimiter=="" or user_delimiter==None:
-    #     user_delimiter=','
     user_quotechar=opt.getOption("-q")
-    # if user_quotechar=="" or user_delimiter==None:
-    #     user_quotechar="\""
-    # user_quotechar='\"'
     columnStr = opt.getOption("-c")
     if columnStr is None or columnStr=="":
         print "Need use -c to specify the columns"
