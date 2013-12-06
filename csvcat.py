@@ -84,8 +84,6 @@ if __name__ == '__main__':
             for h in columns:
                 if h<rowLen:
                     print row[h-1]+" ",
-                else:
-                    print None," ",
             print ""
         k = k+1
     input_fd.close()
