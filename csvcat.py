@@ -58,7 +58,18 @@ def parseColumnRowNumber(optstr):
     
     
 if __name__ == '__main__':
-    opt = OPT(sys.argv[1:],"c:r:d:q:",[("-d",","),("-q","\"")])
+    opt = OPT(sys.argv[1:],"c:r:d:q:h",[("-d",","),("-q","\"")])
+    if opt.getOption("-h") is not None:
+        print """
+        Usage:
+           -c column numbers in this format [4-7],[9-10],11,24
+           -r row numbers in this format [4-7],[9-10],11,24
+           -d delimiter (default ,)
+           -q quote char (default ")
+        Example:
+           csvcat.py -c "[4-7],[9-10]" -r "[1-4],6" test.csv
+        """
+        sys.exit(0)
     user_delimiter=opt.getOption("-d")
     user_quotechar=opt.getOption("-q")
     columnStr = opt.getOption("-c")
